@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forgot Password - FabricLane</title>
+  <link rel="stylesheet" href="index.css" />
+  <style>
+    .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      background-color: #f4f4f4;
+    }
+
+    .login-box {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .login-box h2 {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .login-box p {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #666;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      background-color: #ff5a5f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .login-box button:hover {
+      background-color: #e04b50;
+    }
+
+    .login-box a {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .login-box a:hover {
+      text-decoration: underline;
+    }
+
+    .message {
+      font-size: 14px;
+      text-align: center;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .success {
+      color: green;
+    }
+
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">FabricLane</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">Sales</a></li>
+        <li><a href="#">Cart</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="icons">
+      <input type="text" placeholder="Search products...">
+      <i class="fas fa-search"></i>
+      <i class="fas fa-shopping-cart"></i>
+      <i class="fas fa-user"></i>
+    </div>
+  </header>
+
+  <!-- Forgot Password Section -->
+  <section class="login-container">
+    <div class="login-box">
+      <h2>Reset Password</h2>
+      <p>Enter your email and we’ll send a reset link.</p>
+      <form id="forgotForm">
+        <input type="email" id="email" placeholder="Email Address" required />
+        <button type="submit">Send Reset Link</button>
+        <p class="message success" id="successMessage">Password reset link sent!</p>
+        <p class="message error" id="errorMessage">Please enter a valid email.</p>
+        <a href="login.html">Back to Login</a>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>FabricLane</h3>
+        <p>Your one-stop destination for stylish fashion.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Categories</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+        <p>We accept</p>
+        <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 10px;">
+          <img src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa">
+          <img src="https://img.icons8.com/color/48/000000/mastercard.png" alt="MasterCard">
+          <img src="https://img.icons8.com/color/48/000000/paypal.png" alt="PayPal">
+          <img src="https://img.icons8.com/color/48/000000/google-pay.png" alt="Google Pay">
+          <img src="https://img.icons8.com/color/48/000000/apple-pay.png" alt="Apple Pay">
+          <img src="https://img.icons8.com/color/48/000000/amex.png" alt="Amex">
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div style="display: flex; gap: 15px;">
+          <a href="#"><img src="https://img.icons8.com/ios-filled/50/3b5998/facebook-new.png" width="32"></a>
+          <a href="#"><img src="https://img.icons8.com/ios-filled/50/000000/tiktok--v1.png" width="32"></a>
+          <a href="#"><img src="https://img.icons8.com/ios-filled/50/000000/twitterx--v1.png" width="32"></a>
+          <a href="#"><img src="https://img.icons8.com/ios-filled/50/ff0000/youtube-play.png" width="32"></a>
+        </div>
+      </div>
+    </div>
+    <p class="footer-bottom">&copy; 2025 FabricLane. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('forgotForm');
+    const email = document.getElementById('email');
+    const successMsg = document.getElementById('successMessage');
+    const errorMsg = document.getElementById('errorMessage');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const emailVal = email.value.trim();
+      const valid = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+
+      successMsg.style.display = 'none';
+      errorMsg.style.display = 'none';
+
+      if (valid.test(emailVal)) {
+        successMsg.style.display = 'block';
+        email.value = '';
+      } else {
+        errorMsg.style.display = 'block';
+      }
+    });
+  </script>
+
+</body>
+</html>

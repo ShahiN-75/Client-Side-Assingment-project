@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FabricLane - Your Cart</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="cart1.css">
+</head>
+<body>
+    <script src="index.js"></script>
+    <!-- Header (Same as homepage for consistency) -->
+    <header>
+        <div class="logo">FabricLane</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">Sales</a></li>
+                <li><a href="Cart.html">Cart</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <input type="text" placeholder="Search products...">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-shopping-cart"></i>
+            <i class="fas fa-user"></i>
+            <div style="margin-left: auto;">
+                <a href="log in.html" class="login-btn">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Section -->
+    <section class="cart">
+        <h2>Your Shopping Cart</h2>
+        <div class="cart-container">
+            <!-- Cart Item -->
+
+            <style>
+                .product-image {
+                    width: 90px; /* smaller size */
+                    height: 90px;
+                    object-fit: cover; /* ensures image fills box without distortion */
+                }
+            </style>
+
+
+            <div class="cart-item">
+                <img src="shirts.jpg" alt="Stylish Shirt">
+                <div class="item-details">
+                    <h3>Stylish Shirt</h3>
+                    <p>$25.00</p>
+                    <div class="quantity">
+                        <button>-</button>
+                        <input type="number" value="1" min="1">
+                        <button>+</button>
+                    </div>
+                </div>
+                <div class="item-total">
+                    <p>Total: $25.00</p>
+                    <button class="remove-btn">Remove</button>
+                </div>
+            </div>
+
+            <!-- Another Cart Item -->
+            <div class="cart-item">
+                <img src="shoes.jpg" alt="Casual Shoes">
+                <div class="item-details">
+                    <h3>Casual Shoes</h3>
+                    <p>$50.00</p>
+                    <div class="quantity">
+                        <button>-</button>
+                        <input type="number" value="1" min="1">
+                        <button>+</button>
+                    </div>
+                </div>
+                <div class="item-total">
+                    <p>Total: $50.00</p>
+                    <button class="remove-btn">Remove</button>
+                </div>
+            </div>
+
+            <div class="cart-item">
+                <img src="classic pant.jpg" alt="Classic Pants">
+                <div class="item-details">
+                    <h3>Classic pants</h3>
+                    <p>$45.00</p>
+                    <div class="quantity">
+                        <button>-</button>
+                        <input type="number" value="1" min="1">
+                        <button>+</button>
+                    </div>
+                </div>
+                <div class="item-total">
+                    <p>Total: $45.00</p>
+                    <button class="remove-btn">Remove</button>
+                </div>
+            </div>
+
+            <div class="cart-item">
+                <img src="cargo.jpg" alt="Cargo Pant">
+                <div class="item-details">
+                    <h3>Cargo pants</h3>
+                    <p>$30.00</p>
+                    <div class="quantity">
+                        <button>-</button>
+                        <input type="number" value="1" min="1">
+                        <button>+</button>
+                    </div>
+                </div>
+                <div class="item-total">
+                    <p>Total: $30.00</p>
+                    <button class="remove-btn">Remove</button>
+                </div>
+            </div>
+
+            <div class="cart-item">
+                <img src="tshirt.jpg" alt="T shirt">
+                <div class="item-details">
+                    <h3>Tshirt</h3>
+                    <p>$20.00</p>
+                    <div class="quantity">
+                        <button>-</button>
+                        <input type="number" value="1" min="1">
+                        <button>+</button>
+                    </div>
+                </div>
+                <div class="item-total">
+                    <p>Total: $20.00</p>
+                    <button class="remove-btn">Remove</button>
+                </div>
+            </div>
+
+            <!-- Cart Summary -->
+            <div class="cart-summary">
+                <h3>Cart Summary</h3>
+                <p>Subtotal: $75.00</p>
+                <p>Shipping: $5.00</p>
+                <hr>
+                <p><strong>Total: $80.00</strong></p>
+                <a href="#" class="btn checkout-btn">Proceed to Checkout</a>
+            </div>
+        </div>
+
+        
+    </section>
+
+    <!-- Footer (same as homepage) -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>FabricLane</h3>
+                <p>Your one-stop destination for stylish fashion.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+                <p>We accept</p>
+                <div style="display: flex; justify-content: center; gap: 15px; align-items: center; flex-wrap: wrap; margin-top: 10px;">
+                    <img src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa" width="48" height="32">
+                    <img src="https://img.icons8.com/color/48/000000/mastercard.png" alt="MasterCard" width="48" height="32">
+                    <img src="https://img.icons8.com/color/48/000000/paypal.png" alt="PayPal" width="48" height="32">
+                    <img src="https://img.icons8.com/color/48/000000/google-pay.png" alt="Google Pay" width="48" height="32">
+                    <img src="https://img.icons8.com/color/48/000000/apple-pay.png" alt="Apple Pay" width="48" height="32">
+                    <img src="https://img.icons8.com/color/48/000000/amex.png" alt="American Express" width="48" height="32">
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2025 FabricLane. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #23d5ab, #23a6d5, #e73c7e, #ee7752);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            overflow: hidden;
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .container {
+            position: relative;
+            width: 450px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            z-index: 10;
+            padding: 40px;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -40%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            transform: skewX(-15deg);
+            pointer-events: none;
+        }
+        
+        .form {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .form h2 {
+            color: #fff;
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 40px;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .form .input-group {
+            position: relative;
+            width: 100%;
+            margin-bottom: 25px;
+        }
+        
+        .form .input-group input {
+            width: 100%;
+            padding: 15px 20px;
+            outline: none;
+            border: none;
+            border-radius: 35px;
+            font-size: 16px;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.5s;
+        }
+        
+        .form .input-group input:focus, 
+        .form .input-group input:valid {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .form .input-group input::placeholder {
+            color: transparent;
+        }
+        
+        .form .input-group label {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            color: #fff;
+            font-size: 16px;
+            pointer-events: none;
+            transition: all 0.5s;
+        }
+        
+        .form .input-group input:focus + label,
+        .form .input-group input:valid + label {
+            top: -15px;
+            left: 15px;
+            font-size: 12px;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 2px 10px;
+            border-radius: 15px;
+        }
+        
+        .form .name-fields {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .form .name-fields .input-group {
+            flex: 1;
+        }
+        
+        .form .terms {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .form .terms input {
+            margin-right: 10px;
+            width: 16px;
+            height: 16px;
+            accent-color: #23d5ab;
+        }
+        
+        .form .terms label {
+            color: #fff;
+            font-size: 14px;
+        }
+        
+        .form .terms a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .form .terms a:hover {
+            text-decoration: underline;
+            color: #f0f0f0;
+        }
+        
+        .form .btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            outline: none;
+            border-radius: 35px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            background: #fff;
+            cursor: pointer;
+            transition: all 0.5s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form .btn:hover {
+            background: #f5f5f5;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .form .login-link {
+            text-align: center;
+            margin-top: 25px;
+            color: #fff;
+            font-size: 14px;
+        }
+        
+        .form .login-link a {
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .form .login-link a:hover {
+            text-decoration: underline;
+            color: #f0f0f0;
+        }
+        
+        .password-strength {
+            margin-top: 5px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .password-strength::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0%;
+            background: #ff4757;
+            transition: width 0.3s ease;
+        }
+        
+        .password-strength[data-strength="weak"]::before {
+            width: 25%;
+            background: #ff4757;
+        }
+        
+        .password-strength[data-strength="medium"]::before {
+            width: 50%;
+            background: #ffa502;
+        }
+        
+        .password-strength[data-strength="strong"]::before {
+            width: 100%;
+            background: #2ed573;
+        }
+        
+        .password-hint {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .circles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .circles li {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            animation: animate 25s linear infinite;
+            bottom: -150px;
+            border-radius: 50%;
+        }
+        
+        .circles li:nth-child(1) {
+            left: 25%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+        }
+        
+        .circles li:nth-child(2) {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }
+        
+        .circles li:nth-child(3) {
+            left: 70%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+        }
+        
+        .circles li:nth-child(4) {
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+        }
+        
+        .circles li:nth-child(5) {
+            left: 65%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+        }
+        
+        .circles li:nth-child(6) {
+            left: 75%;
+            width: 110px;
+            height: 110px;
+            animation-delay: 3s;
+        }
+        
+        .circles li:nth-child(7) {
+            left: 35%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 7s;
+        }
+        
+        .circles li:nth-child(8) {
+            left: 50%;
+            width: 25px;
+            height: 25px;
+            animation-delay: 15s;
+            animation-duration: 45s;
+        }
+        
+        .circles li:nth-child(9) {
+            left: 20%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 2s;
+            animation-duration: 35s;
+        }
+        
+        .circles li:nth-child(10) {
+            left: 85%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 0s;
+            animation-duration: 11s;
+        }
+        
+        @keyframes animate {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 0;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </div>
+    
+    <div class="container">
+        <div class="form">
+            <h2>Create Account</h2>
+            <div class="name-fields">
+                <div class="input-group">
+                    <input type="text" id="firstName" required>
+                    <label for="firstName">First Name</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="lastName" required>
+                    <label for="lastName">Last Name</label>
+                </div>
+            </div>
+            <div class="input-group">
+                <input type="email" id="email" required>
+                <label for="email">Email</label>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" required>
+                <label for="password">Password</label>
+                <div class="password-strength" id="passwordStrength"></div>
+                <div class="password-hint" id="passwordHint">
+                    Password must be at least 8 characters long and contain a number
+                </div>
+            </div>
+            <div class="input-group">
+                <input type="password" id="confirmPassword" required>
+                <label for="confirmPassword">Confirm Password</label>
+            </div>
+            <div class="terms">
+                <input type="checkbox" id="agreeTerms" required>
+                <label for="agreeTerms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+            </div>
+            <button class="btn">Create Account</button>
+            <div class="login-link">
+                Already have an account? <a href="#">Sign in</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add animation to the container on load
+            const container = document.querySelector('.container');
+            container.style.opacity = '0';
+            container.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                container.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                container.style.opacity = '1';
+                container.style.transform = 'translateY(0)';
+            }, 100);
+            
+            // Password strength indicator
+            const passwordInput = document.getElementById('password');
+            const passwordStrength = document.getElementById('passwordStrength');
+            const passwordHint = document.getElementById('passwordHint');
+            
+            passwordInput.addEventListener('input', function() {
+                const password = this.value;
+                let strength = '';
+                
+                if (password.length > 0) {
+                    passwordHint.style.display = 'block';
+                } else {
+                    passwordHint.style.display = 'none';
+                }
+                
+                if (password.length < 6) {
+                    strength = 'weak';
+                } else if (password.length < 10) {
+                    strength = 'medium';
+                } else {
+                    // Check for complexity
+                    const hasNumber = /\d/.test(password);
+                    const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+                    
+                    if (hasNumber && hasSpecial) {
+                        strength = 'strong';
+                    } else if (hasNumber || hasSpecial) {
+                        strength = 'medium';
+                    } else {
+                        strength = 'weak';
+                    }
+                }
+                
+                passwordStrength.setAttribute('data-strength', strength);
+            });
+            
+            // Form validation and submission
+            const form = document.querySelector('.form');
+            const btn = document.querySelector('.btn');
+            
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const firstName = document.getElementById('firstName').value;
+                const lastName = document.getElementById('lastName').value;
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+                const agreeTerms = document.getElementById('agreeTerms').checked;
+                
+                // Simple validation
+                if (!firstName || !lastName || !email || !password || !confirmPassword) {
+                    showError('Please fill all fields!');
+                    return;
+                }
+                
+                if (!validateEmail(email)) {
+                    showError('Please enter a valid email address!');
+                    return;
+                }
+                
+                if (password.length < 8) {
+                    showError('Password must be at least 8 characters long!');
+                    return;
+                }
+                
+                if (password !== confirmPassword) {
+                    showError('Passwords do not match!');
+                    return;
+                }
+                
+                if (!agreeTerms) {
+                    showError('You must agree to the terms and conditions!');
+                    return;
+                }
+                
+                // Simulate API call
+                simulateRegistration(firstName, lastName, email, password);
+            });
+            
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+            
+            function showError(message) {
+                btn.textContent = message;
+                btn.style.background = '#ff6b6b';
+                
+                setTimeout(() => {
+                    btn.textContent = 'Create Account';
+                    btn.style.background = '#fff';
+                }, 2000);
+            }
+            
+            function simulateRegistration(firstName, lastName, email, password) {
+                btn.textContent = 'Creating account...';
+                btn.style.background = '#23d5ab';
+                
+                // Simulate API call delay
+                setTimeout(() => {
+                    btn.textContent = 'Account created! Redirecting...';
+                    
+                    // In a real app, you would redirect to dashboard or send verification email
+                    setTimeout(() => {
+                        alert(`Account created successfully!\nWelcome ${firstName} ${lastName}!`);
+                        btn.textContent = 'Create Account';
+                        btn.style.background = '#fff';
+                        
+                        // Reset form (in a real app, you would redirect instead)
+                        form.reset();
+                        passwordStrength.removeAttribute('data-strength');
+                        passwordHint.style.display = 'none';
+                    }, 1500);
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+</html>

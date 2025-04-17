@@ -1,0 +1,199 @@
+
+.contact-section {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .contact-section h2 {
+    margin-bottom: 20px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  
+  .contact-form .btn {
+    padding: 12px 20px;
+    border: none;
+    background-color: #ff5a5f;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+  
+  /* Footer Payment & Social Icons */
+  .payment-icons,
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  
+  /* Chat Box */
+  .chat-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    max-height: 400px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+  }
+  
+  .chat-header {
+    background-color: #222;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .chat-body {
+    padding: 10px;
+    flex: 1;
+    overflow-y: auto;
+    font-size: 14px;
+  }
+  
+  .chat-input {
+    display: flex;
+    border-top: 1px solid #ccc;
+  }
+  
+  .chat-input input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .chat-input button {
+    background-color: #ff5a5f;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .chat-message {
+    margin-bottom: 10px;
+  }
+  
+  .chat-message.user {
+    text-align: right;
+    color: #333;
+  }
+  
+  .chat-message.bot {
+    text-align: left;
+    color: #007bff;
+  }
+  
+  /*Mobile Responsive Styles Below */
+  @media (max-width: 768px) {
+    body {
+      font-size: 16px;
+    }
+  
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px;
+    }
+  
+    .nav-links {
+      flex-direction: column;
+      width: 100%;
+      padding-left: 0;
+    }
+  
+    .nav-links li {
+      margin: 5px 0;
+    }
+  
+    .icons {
+      flex-direction: column;
+      width: 100%;
+      margin-top: 10px;
+    }
+  
+    .icons input {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+    .chat-box {
+      right: 10px;
+      left: 10px;
+      width: auto;
+      bottom: 10px;
+    }
+  
+    .contact-section {
+      margin: 20px;
+      padding: 20px;
+    }
+  
+    .contact-form input,
+    .contact-form textarea {
+      font-size: 14px;
+    }
+  
+    footer .footer-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .footer-section {
+      margin: 15px 0;
+    }
+  
+    .payment-icons img,
+    .social-icons img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .chat-box {
+      max-height: 300px;
+    }
+  
+    .chat-input input {
+      font-size: 12px;
+    }
+  
+    .chat-input button {
+      font-size: 12px;
+      padding: 8px;
+    }
+  
+    .contact-form .btn {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+  

@@ -1,0 +1,153 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  /* Header */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 15px 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    font-weight: 500;
+  }
+  
+  nav ul li a.active,
+  nav ul li a:hover {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+  }
+  
+  .icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .icons input {
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .login-btn {
+    text-decoration: none;
+    padding: 8px 14px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    font-weight: 500;
+  }
+  
+  /* Hero Section */
+  .sale-hero {
+    background: url('images/sale-banner.jpg') center/cover no-repeat;
+    height: 300px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sale-hero .overlay {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    text-align: center;
+    color: white;
+    width: 100%;
+  }
+  
+  .sale-hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+  
+  .sale-hero p {
+    font-size: 18px;
+  }
+  
+  /* Product Grid */
+  .sale-products {
+    padding: 50px 30px;
+    background-color: #fff;
+    text-align: center;
+  }
+  
+  .sale-products h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+  
+  .product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .product {
+    width: 220px;
+    background: #f3f3f3;
+    padding: 15px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .product img {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+  
+  .product:hover {
+    transform: translateY(-5px);
+  }
+  
+  .old-price {
+    text-decoration: line-through;
+    color: #888;
+    margin-right: 8px;
+  }
+  
+  .new-price {
+    color: #e60023;
+    font-weight: bold;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: 50px;
+  }
+  
